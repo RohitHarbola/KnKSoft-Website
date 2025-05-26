@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Layer with Enhanced Color Scheme */
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: 0 0% 100%; /* Pure White for clean background */
+    --foreground: 210 20% 20%; /* Darker grey for better contrast */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 210 20% 20%; /* Dark grey text */
+    --popover: 0 0% 100%; /* White popovers */
+    --popover-foreground: 210 20% 20%; /* Dark grey text */
+    --primary: 210 98% 34%; /* #014f99 - Rich Blue */
+    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --secondary: 210 20% 90%; /* Light grey for subtle elements */
+    --secondary-foreground: 210 20% 20%; /* Dark grey text */
+    --muted: 210 20% 95%; /* Very light grey */
+    --muted-foreground: 210 15% 40%; /* Medium grey for muted text */
+    --accent: 0 100% 41%; /* #af0000 - Vibrant Red */
+    --accent-foreground: 0 0% 100%; /* White for contrast */
+    --destructive: 0 80% 50%; /* Softer red for errors */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 120 60% 45%; /* Green for success */
+    --success-foreground: 0 0% 100%; /* White */
+    --warning: 40 80% 50%; /* Warm yellow */
+    --warning-foreground: 210 20% 20%; /* Dark grey */
+    --info: 200 80% 50%; /* Light blue for info */
+    --info-foreground: 0 0% 100%; /* White */
+    --border: 210 20% 90%; /* Light grey borders */
+    --input: 210 20% 98%; /* Near-white inputs */
+    --ring: 210 98% 34%; /* #014f99 for focus rings */
+    --radius: 0.75rem; /* Slightly larger radius for modern look */
+    --shadow: 210 20% 80%; /* Subtle grey shadows */
+    --font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 210 30% 10%; /* Dark blue-grey */
+    --foreground: 0 0% 98%; /* Near-white text */
+    --card: 210 30% 15%; /* Slightly lighter dark cards */
+    --card-foreground: 0 0% 98%; /* Near-white text */
+    --popover: 210 30% 15%; /* Dark popovers */
+    --popover-foreground: 0 0% 98%; /* Near-white text */
+    --primary: 210 98% 40%; /* Slightly lighter #014f99 for dark mode */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 210 20% 25%; /* Dark grey secondary */
+    --secondary-foreground: 0 0% 98%; /* Near-white text */
+    --muted: 210 20% 20%; /* Darker muted areas */
+    --muted-foreground: 0 0% 70%; /* Light grey muted text */
+    --accent: 0 100% 45%; /* Slightly brighter #af0000 */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 80% 55%; /* Brighter red for visibility */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 120 60% 50%; /* Brighter green */
+    --success-foreground: 0 0% 100%; /* White */
+    --warning: 40 80% 55%; /* Brighter yellow */
+    --warning-foreground: 210 20% 20%; /* Dark grey */
+    --info: 200 80% 55%; /* Brighter blue */
+    --info-foreground: 0 0% 100%; /* White */
+    --border: 210 20% 25%; /* Dark grey borders */
+    --input: 210 20% 20%; /* Dark inputs */
+    --ring: 210 98% 40%; /* #014f99 for focus */
+    --radius: 0.75rem;
+    --shadow: 0 0% 0%; /* Minimal shadows in dark mode */
+    --font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Components Layer */
+@layer components {
+  .nav-container {
+    @apply fixed w-full top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50;
+  }
+
+  .nav-link {
+    @apply relative text-foreground/90 font-medium tracking-wide hover:text-primary transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 ease-in-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-br from-primary/10 via-background to-accent/10;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent font-semibold;
+  }
+
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-[--radius] font-medium hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-secondary-foreground rounded-[--radius] font-medium hover:bg-secondary/80 focus:ring-4 focus:ring-secondary/20 transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-[--radius] border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-input text-foreground rounded-[--radius] border border-border focus:outline-none focus:ring-2 focus:ring-ring placeholder-muted-foreground;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-foreground tracking-tight;
+  }
+
+  .sub-menu {
+    @apply absolute top-16 p-4 rounded-xl z-50 bg-background/95 backdrop-blur-lg border border-border/30 shadow-xl dark:shadow-2xl transition-all duration-200;
+  }
+
+  .sub-menu a {
+    @apply block px-3 py-2 rounded-md text-foreground/80 hover:bg-primary/10 hover:text-primary transition-colors duration-200;
+  }
+}
+
+/* Enhanced Utilities */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-grid-pattern {
+    background-image: linear-gradient(
+        to right,
+        var(--border) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+  }
+
+  .hero-pattern {
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      var(--primary) 1px,
+      transparent 0
+    );
+    background-size: 48px 48px;
+    opacity: 0.15;
+  }
+}
+
+/* IT-Specific Components */
+@layer components {
+  .tech-stack-icon {
+    @apply w-12 h-12 p-2 rounded-lg bg-muted text-primary hover:bg-primary/10 transition-colors duration-200;
+  }
+
+  .service-card {
+    @apply card p-6 hover:bg-primary/5 group transition-colors duration-300;
+  }
+
+  .service-card:hover .service-icon {
+    @apply text-primary scale-110;
+  }
+
+  .cta-section {
+    @apply py-16 bg-gradient-to-b from-primary/5 to-background text-center rounded-[--radius];
+  }
+
+  .feature-list {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .feature-item {
+    @apply flex items-start space-x-4 p-4 rounded-lg hover:bg-muted/50 transition-colors duration-200;
+  }
+}
+
+/* Slider Enhancements */
+.slick-dots {
+  @apply bottom-4;
+}
+
+.slick-dots li button:before {
+  @apply text-2xl text-primary opacity-50 transition-opacity duration-200;
+}
+
+.slick-dots li.slick-active button:before {
+  @apply opacity-100 scale-125;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-primary/50 w-3 h-3 rounded-full transition-all duration-300;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary scale-125;
+}
+
+/* Animations */
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Font Utilities */
+.display-text {
+  font-family: var(--font-space-grotesk, "Space Grotesk"), system-ui;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.body-text {
+  font-family: var(--font-inter, "Inter"), system-ui;
+  line-height: 1.6;
+}
+
+/* High Contrast Focus States */
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Responsive Typography */
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
