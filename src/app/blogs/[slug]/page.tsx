@@ -2,30 +2,14 @@ import { notFound } from "next/navigation";
 import BlogSlug from "@/components/Blogs/BlogSlug";
 import { generateSlug } from "@/lib/blog/utils";
 import { getBlogPosts } from "@/lib/blog/api";
+import type { BlogPost as BlogPostType } from "@/lib/blog/type";
 
 export const dynamic = "force-dynamic";
 
-interface BlogPost {
-  _id: string;
-  title: string;
-  subtitle: string;
-  content: string;
-  image: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  createdAt: string;
-  readingTime: string;
-  tags: string[];
-}
-
-async function getBlogPost(slug: string): Promise<BlogPost | null> {
+async function getBlogPost(slug: string): Promise<BlogPostType | null> {
   try {
     const data = await getBlogPosts();
-    const foundPost = data.find(
-      (post: BlogPost) => generateSlug(post.title) === slug
-    );
+    const foundPost = data.find((post) => generateSlug(post.title) === slug);
     return foundPost || null;
   } catch (error) {
     console.error("Error fetching blog slug post:", error);
