@@ -8,14 +8,15 @@ export async function POST(request: NextRequest) {
   // Get credentials from environment variables
   const adminUsername = process.env.ADMIN_USERNAME;
   const adminPassword = process.env.ADMIN_PASSWORD;
+  const jwtSecret = process.env.JWT_SECRET_KEY;
 
-  if (username === adminUsername && password === adminPassword) {
+  if (username === adminUsername && password === adminPassword && jwtSecret) {
     const response = NextResponse.json({ success: true });
 
     // Set HTTP-only cookie that expires in 24 hours
     response.cookies.set({
       name: "admin_token",
-      value: process.env.JWT_SECRET_KEY || "your_secure_token_here",
+      value: jwtSecret,
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",

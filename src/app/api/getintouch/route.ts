@@ -29,11 +29,11 @@ interface GetInTouchFormData {
 
 // Define SQL Server config
 const sqlConfig = {
-  user: "KNKSoftUser",
-  password: "K&KS0f1U$er",
-  database: "KnkSoft",
-  server: "103.205.66.35",
-  port: 2499,
+  user: process.env.SQL_SERVER_USER,
+  password: process.env.SQL_SERVER_PASSWORD,
+  database: process.env.SQL_SERVER_DATABASE,
+  server: process.env.SQL_SERVER_HOST,
+  port: Number(process.env.SQL_SERVER_PORT),
   options: {
     trustServerCertificate: true,
     encrypt: false,
