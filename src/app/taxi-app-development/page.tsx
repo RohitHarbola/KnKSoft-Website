@@ -13,6 +13,8 @@ import { getBlogPosts } from "@/lib/blog/api";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import Hero from "@/components/ui/Hero/Hero";
 
+export const dynamic = "force-dynamic";
+
 export default async function TaxiAppDevelopment() {
   let blogPosts: BlogPost[] = [];
   try {

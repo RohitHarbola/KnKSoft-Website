@@ -2,6 +2,8 @@ import BlogCMS from "@/components/Blogs/BlogCMS";
 import CommentManager from "@/components/Comments/CommentManager";
 import { getBlogPosts } from "@/lib/blog/api";
 
+export const dynamic = "force-dynamic";
+
 export default async function Dashboard() {
   const blogPosts = await getBlogPosts();
 

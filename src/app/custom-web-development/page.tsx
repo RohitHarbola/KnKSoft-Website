@@ -16,6 +16,8 @@ import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import Hero from "@/components/ui/Hero/Hero";
 
+export const dynamic = "force-dynamic";
+
 export default async function CustomWebDevelopment() {
   let blogPosts: BlogPost[] = [];
   try {

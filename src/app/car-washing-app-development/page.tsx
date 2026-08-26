@@ -12,6 +12,8 @@ import BlogSection from "@/components/Home/BlogSection";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import Hero from "@/components/ui/Hero/Hero";
 
+export const dynamic = "force-dynamic";
+
 export default async function CarWashingAppDevelopment() {
   let blogPosts: BlogPost[] = [];
   try {

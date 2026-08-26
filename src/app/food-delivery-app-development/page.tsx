@@ -9,6 +9,8 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
+
+export const dynamic = "force-dynamic";
 import { BlogPost } from "@/lib/blog/type";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import Hero from "@/components/ui/Hero/Hero";

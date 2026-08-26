@@ -7,6 +7,8 @@ import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import { whyChooseData } from "@/components/MVP/WhyChooseUs/why-choose-data";
 import BlogSection from "@/components/Home/BlogSection";
 import { getBlogPosts } from "@/lib/blog/api";
+
+export const dynamic = "force-dynamic";
 import { BlogPost } from "@/lib/blog/type";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import Hero from "@/components/ui/Hero/Hero";

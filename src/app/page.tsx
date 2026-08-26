@@ -13,6 +13,8 @@ import { BlogPost } from "@/lib/blog/type";
 import BlogSection from "@/components/Home/BlogSection";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   let blogPosts: BlogPost[] = [];
   try {

@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import BlogSlug from "@/components/Blogs/BlogSlug";
 import { generateSlug } from "@/lib/blog/utils";
+import { getBlogPosts } from "@/lib/blog/api";
+
+export const dynamic = "force-dynamic";
 
 interface BlogPost {
   _id: string;
@@ -18,17 +21,8 @@ interface BlogPost {
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_PRODUCTION_URL || "http://localhost:3000";
-
   try {
-    const response = await fetch(`${baseUrl}/api/blogposts`, {
-      cache: "no-store",
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch blog slug posts");
-    }
-    const data = await response.json();
+    const data = await getBlogPosts();
     const foundPost = data.find(
       (post: BlogPost) => generateSlug(post.title) === slug
     );

@@ -8,6 +8,8 @@ import FAQ from "@/components/ui/FAQ";
 import Hero from "@/components/ui/Hero/Hero";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
+
+export const dynamic = "force-dynamic";
 import { BlogPost } from "@/lib/blog/type";
 
 export default async function GroceryAppDevelopment() {

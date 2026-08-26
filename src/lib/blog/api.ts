@@ -1,24 +1,28 @@
 import { BlogPost, Comment } from "./type";
+import clientPromise from "@/lib/mongodb";
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_PRODUCTION_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_PRODUCTION_URL || "";
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   try {
-    const response = await fetch(`${baseUrl}/api/blogposts`, {
-      next: {
-        revalidate: 10,
-        tags: ["blogposts"],
-      },
-    });
+    const client = await clientPromise;
+    const posts = await client
+      .db("knksoftinfotech")
+      .collection("posts")
+      .find(
+        {},
+        { projection: { title: 1, content: 1, tags: 1, image: 1, createdAt: 1 } }
+      )
+      .sort({ createdAt: -1 })
+      .limit(20)
+      .toArray();
 
-    if (!response.ok) {
-      console.error(`HTTP error! status: ${response.status}`);
-      return [];
-    }
-
-    const data = await response.json();
-    return Array.isArray(data) ? data : [];
+    return posts.map((post) => ({
+      ...post,
+      _id: post._id.toString(),
+      createdAt: post.createdAt?.toISOString?.() || String(post.createdAt || ""),
+    })) as BlogPost[];
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return [];

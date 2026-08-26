@@ -359,7 +359,7 @@ export default function CreateBlogPost({
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
 
   const baseUrl =
-    process.env.NEXT_PUBLIC_PRODUCTION_URL || "http://localhost:3000";
+    process.env.NEXT_PUBLIC_PRODUCTION_URL || "";
 
   const fetchBlogPosts = useCallback(async () => {
     try {

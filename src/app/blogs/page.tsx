@@ -3,6 +3,8 @@ import React from "react";
 import { getBlogPosts } from "@/lib/blog/api";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const blogPosts = await getBlogPosts();
 
