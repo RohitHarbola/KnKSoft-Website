@@ -5,7 +5,8 @@ import AdminJobList from '@/components/Careers/Admin/AdminJobList'
 import AdminJobForm from '@/components/Careers/Admin/AdminJobForm'
 import { Job } from '@/lib/careers/types'
 import AdminLogin from '@/components/Admin/login'
-import { Loader2, LogOut, ExternalLink, ShieldCheck } from 'lucide-react'
+import AdminLogout from '@/components/Admin/logout'
+import { Loader2, ExternalLink, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export default function CareerAdmin() {
@@ -119,13 +120,14 @@ export default function CareerAdmin() {
                             <span className="font-semibold text-gray-900">{adminUsername}</span>
                         </div>
 
-                        <button
-                            onClick={handleLogout}
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-red-600 hover:text-white bg-red-50 hover:bg-red-600 px-3.5 py-1.5 rounded-lg border border-red-200 hover:border-red-600 transition-colors"
-                        >
-                            <LogOut className="w-4 h-4" />
-                            <span className="hidden sm:inline">Logout</span>
-                        </button>
+                        <AdminLogout
+                            variant="header"
+                            redirectTo="/career-admin"
+                            onLogout={() => {
+                                setIsAuthenticated(false);
+                                setAdminUsername("");
+                            }}
+                        />
                     </div>
                 </div>
             </header>

@@ -14,19 +14,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useSidebar } from "@/components/ui/Admin/sidebar-provider";
+import AdminLogout from "@/components/Admin/logout";
 
 export function DashboardHeader() {
   const { toggle } = useSidebar();
-
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/auth/admin-logout", { method: "POST" });
-      window.location.href = "/admin";
-    } catch (error) {
-      console.error("Logout failed:", error);
-      window.location.href = "/admin";
-    }
-  };
 
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
@@ -59,6 +50,7 @@ export function DashboardHeader() {
           <Bell className="h-5 w-5" />
           <span className="sr-only">Notifications</span>
         </Button>
+        <AdminLogout variant="header" />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -87,8 +79,8 @@ export function DashboardHeader() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 focus:text-red-700">
-              Log out
+            <DropdownMenuItem asChild className="cursor-pointer p-0">
+              <AdminLogout variant="dropdown" />
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

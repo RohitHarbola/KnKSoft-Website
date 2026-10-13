@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useSidebar } from "@/components/ui/Admin/sidebar-provider";
+import AdminLogout from "@/components/Admin/logout";
 
 interface NavItemProps {
   title: string;
@@ -160,9 +161,38 @@ export function DashboardSidebar() {
               isActive={pathname.startsWith("/admin/dashboard/profile")}
               isCollapsed={!isOpen}
             />
+            <AdminLogout variant="sidebar" isCollapsed={!isOpen} />
           </ul>
         </nav>
       </ScrollArea>
+
+      {/* Bottom Profile & Logout Section */}
+      <div className="border-t bg-muted/20 p-3">
+        <div className={cn("flex items-center gap-2", !isOpen ? "justify-center" : "justify-between")}>
+          {isOpen && (
+            <Link
+              href="/admin/dashboard/profile"
+              className="flex items-center gap-2.5 overflow-hidden hover:opacity-80 transition-opacity"
+              title="Manage Admin Profile"
+            >
+              <div className="h-8 w-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs shrink-0 ring-1 ring-red-200">
+                AD
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="text-xs font-semibold text-gray-900 truncate">Admin Account</span>
+                <span className="text-[10px] text-emerald-600 font-medium truncate flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Active Session
+                </span>
+              </div>
+            </Link>
+          )}
+          <AdminLogout
+            variant="compact"
+            className={cn(!isOpen && "p-2")}
+          />
+        </div>
+      </div>
     </aside>
   );
 }

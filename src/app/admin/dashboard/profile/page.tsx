@@ -23,6 +23,7 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { toast } from "react-hot-toast";
+import AdminLogout from "@/components/Admin/logout";
 
 interface AdminUser {
   username: string;
@@ -195,6 +196,12 @@ export default function AdminProfilePage() {
                 Authenticated with HTTP-only 24h JWT cookie stored securely.
               </p>
             </div>
+
+            <AdminLogout
+              variant="button"
+              className="w-full mt-2"
+              label="Sign Out of Session"
+            />
           </CardContent>
         </Card>
 
