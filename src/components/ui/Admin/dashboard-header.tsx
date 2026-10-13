@@ -18,6 +18,16 @@ import { useSidebar } from "@/components/ui/Admin/sidebar-provider";
 export function DashboardHeader() {
   const { toggle } = useSidebar();
 
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/admin-logout", { method: "POST" });
+      window.location.href = "/admin";
+    } catch (error) {
+      console.error("Logout failed:", error);
+      window.location.href = "/admin";
+    }
+  };
+
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
       <Button
@@ -30,11 +40,11 @@ export function DashboardHeader() {
         <span className="sr-only">Toggle sidebar</span>
       </Button>
       <Link
-        href="/dashboard"
+        href="/admin/dashboard"
         className="flex items-center gap-2 font-semibold lg:hidden"
       >
-        <Package className="h-5 w-5" />
-        <span>Acme</span>
+        <Package className="h-5 w-5 text-red-600" />
+        <span>KNK Soft</span>
       </Link>
       <div className="relative flex-1 md:grow-0 md:basis-1/3">
         <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -54,18 +64,32 @@ export function DashboardHeader() {
             <Button variant="ghost" className="relative h-8 w-8 rounded-full">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="/placeholder.svg" alt="User" />
-                <AvatarFallback>IM</AvatarFallback>
+                <AvatarFallback className="bg-red-100 text-red-700 font-bold">AD</AvatarFallback>
               </Avatar>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/admin/dashboard/profile" className="cursor-pointer w-full">
+                Profile
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/admin/dashboard/settings" className="cursor-pointer w-full">
+                Settings
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/admin/dashboard/support" className="cursor-pointer w-full">
+                Help & Support
+              </Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Log out</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 focus:text-red-700">
+              Log out
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

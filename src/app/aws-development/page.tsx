@@ -2,7 +2,7 @@ import { Features } from "@/components/AWSDevelopment/Features/Features";
 import { Process } from "@/components/AWSDevelopment/Process";
 import { Services } from "@/components/AWSDevelopment/Services/Services";
 import { Stats } from "@/components/AWSDevelopment/Stats";
-import { Testimonials } from "@/components/AWSDevelopment/Testimonials";
+import Testimonials from "@/components/Testimonials/Testimonials";
 import { TechnologyStack } from "@/components/AWSDevelopment/TechnologyStack";
 import { CaseStudies } from "@/components/AWSDevelopment/CaseStudies";
 import { Expertise } from "@/components/AWSDevelopment/Expertise";

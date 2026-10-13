@@ -48,6 +48,7 @@
     "@tiptap/starter-kit": "^2.11.7",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.8",
+    "bun": "^1.4.3",
     "chart.js": "^4.4.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

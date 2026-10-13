@@ -3,7 +3,7 @@
 export interface MarketplaceItem {
   name: string;
   desc: string;
-  iconName: keyof typeof import("lucide-react");
+  iconName: string;
   image: string;
 }
 
@@ -15,6 +15,37 @@ export interface MarketplaceTab {
 }
 
 export const MARKETPLACE_TABS: MarketplaceTab[] = [
+  {
+    id: "pos-order",
+    label: "POS",
+    tabImage: "/home/hp-vision1.png",
+    items: [
+      {
+        name: "Dine-In & Casual Restaurants",
+        desc: "3-second Captain app ordering, interactive table layout, and split billing with instant UPI soundbox sync.",
+        iconName: "UtensilsCrossed",
+        image: "/images/marketplace/food-delivery.webp",
+      },
+      {
+        name: "Retail Chemists & Druggists",
+        desc: "Batch-wise expiry auto-alerts, salt substitute lookup, and fraction billing for loose tablets & strips.",
+        iconName: "Pill",
+        image: "/images/marketplace/pharmacy.webp",
+      },
+      {
+        name: "Fashion & Garment Boutiques",
+        desc: "Matrix barcode generation for size, color, and fabric with instant exchange and credit note management.",
+        iconName: "Shirt",
+        image: "/images/marketplace/retail.webp",
+      },
+      {
+        name: "Hair Salons & Beauty Parlours",
+        desc: "Visual stylist appointment calendar, automated staff commission payouts, and service package management.",
+        iconName: "Scissors",
+        image: "/images/marketplace/salon.webp",
+      },
+    ],
+  },
   {
     id: "product-order",
     label: "Product Order & Delivery",

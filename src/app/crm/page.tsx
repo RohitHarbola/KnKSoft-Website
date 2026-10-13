@@ -4,7 +4,7 @@ import CaseStudies from "@/components/CRM/CaseStudies";
 import IntegrationPartners from "@/components/CRM/IntegrationPartners";
 import ProductTour from "@/components/CRM/ProductTour";
 import Services from "@/components/CRM/Services/Services";
-import Testimonials from "@/components/CRM/Testimonials";
+import Testimonials from "@/components/Testimonials/Testimonials";
 import FAQ from "@/components/CRM/FAQ";
 import Features from "@/components/CRM/Features/Features";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";

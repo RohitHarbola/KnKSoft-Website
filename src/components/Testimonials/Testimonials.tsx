@@ -21,30 +21,30 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Mukul",
-    position: "Founder",
-    company: "Aagyo, India",
-    image: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
+    name: "Yogendra Singh",
+    position: "CIO/Head-IT",
+    company: "Barista Coffee Company Limited",
+    image: "/Testimonial/YogendraSingh.png",
     quote:
-      "I am happy to have chosen Valueappz to launch my Hyperlocal Food and Grocery Delivery Business. We got all necessary features of Zomato, BlinkIt into a single platform in less than 3 months and a fraction of tech costs that we would have incurred building it from scratch. Our business has been growing exponentially and ValueAppz team has been flexible to make customizations based on our customers feedback.",
+      'KNK Soft Infotech has been a trusted technology partner for Barista Coffee Company Limited, delivering innovative software solutions that enhance operational efficiency and digital capabilities. Their proactive team, transparent communication, and business-focused approach ensure seamless project execution and exceptional client support. We highly recommend KNK Soft Infotech as a reliable partner for organizations pursuing digital innovation and transformation.',
   },
   {
     id: 2,
-    name: "Sarah",
-    position: "CEO",
-    company: "TechFlow, USA",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Rajesh K. Thanua",
+    position: "General Manager",
+    company: "SMAS Auto Leasing India Private Limited",
+    image: "/Testimonial/Rajesh.png",
     quote:
-      "Working with this team has transformed our business operations completely. Their innovative solutions and dedication to customer success have helped us achieve remarkable growth in record time.",
+      'We sincerely appreciate KNK’s exceptional support and service over the past three years. Their professionalism, efficiency, and commitment to timely delivery have been instrumental in managing manpower supply, recruitment, monthly transactions, and system enhancements. We value KNK as a reliable technology partner and look forward to continuing our successful collaboration.',
   },
   {
     id: 3,
-    name: "James",
-    position: "Director",
-    company: "InnovateCo, UK",
-    image: "https://randomuser.me/api/portraits/men/86.jpg",
+    name: "Anushree",
+    position: "HR Head",
+    company: "Amplifon India Private Limited",
+    image: "/Testimonial/Anushree.png",
     quote:
-      "The level of professionalism and technical expertise demonstrated by the team is outstanding. They delivered exactly what we needed and went above and beyond to ensure our satisfaction.",
+      'For the past three years, KNK Soft Infotech has been a trusted technology partner of Amplifon India Private Limited, delivering high-quality application development services and skilled technical resources. Their technical expertise, professionalism, timely delivery, and collaborative approach have contributed to the stability, scalability, and continuous improvement of our applications. We appreciate their commitment to understanding our business needs and look forward to a continued successful partnership.',
   },
 ];
 

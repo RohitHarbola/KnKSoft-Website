@@ -299,6 +299,7 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     className="mt-2 w-full rounded-lg border border-border bg-input px-4 py-2.5 text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="">Select a service</option>
+                    <option value="POS">POS</option>
                     {getServices().map((service) => (
                       <option key={service.href} value={service.name}>
                         {service.name}

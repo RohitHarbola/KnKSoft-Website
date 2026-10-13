@@ -103,8 +103,8 @@ export function DashboardSidebar() {
           href="/admin/dashboard"
           className="flex items-center gap-2 font-semibold"
         >
-          <Package className="h-6 w-6" />
-          {isOpen && <span>IPO Markets</span>}
+          <Package className="h-6 w-6 text-red-600" />
+          {isOpen && <span>KNK Soft Admin</span>}
         </Link>
       </div>
       <ScrollArea className="flex-1 py-2">
@@ -119,9 +119,9 @@ export function DashboardSidebar() {
             />
             <NavItem
               title="Home"
-              href="#"
+              href="/"
               icon={Home}
-              isActive={pathname.startsWith("/admin/dashboard")}
+              isActive={pathname === "/"}
               isCollapsed={!isOpen}
             />
             <NavItem
@@ -141,23 +141,23 @@ export function DashboardSidebar() {
           <ul className="space-y-1">
             <NavItem
               title="Settings"
-              href="/settings"
+              href="/admin/dashboard/settings"
               icon={Cog}
-              isActive={pathname === "/settings"}
+              isActive={pathname.startsWith("/admin/dashboard/settings")}
               isCollapsed={!isOpen}
             />
             <NavItem
               title="Help & Support"
-              href="/support"
+              href="/admin/dashboard/support"
               icon={LifeBuoy}
-              isActive={pathname === "/support"}
+              isActive={pathname.startsWith("/admin/dashboard/support")}
               isCollapsed={!isOpen}
             />
             <NavItem
               title="Profile"
-              href="/profile"
+              href="/admin/dashboard/profile"
               icon={CircleUser}
-              isActive={pathname === "/profile"}
+              isActive={pathname.startsWith("/admin/dashboard/profile")}
               isCollapsed={!isOpen}
             />
           </ul>

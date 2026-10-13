@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
+    pass: process.env.SMTP_PASS || process.env.SMTP_PASSWORD,
   },
 });
 
@@ -30,8 +30,11 @@ export async function sendContactNotification(data: ContactFormData) {
 
   // Admin notification email
   const adminMailOptions = {
-    from: data.businessEmail, // Set sender as user's email
-    to: process.env.SMTP_USER,
+    from: process.env.SMTP_USER,
+    to:
+      process.env.CONTACT_RECIPIENTS ||
+      process.env.NOTIFICATION_EMAIL ||
+      process.env.SMTP_USER,
     subject: `New Contact Form Submission - ${data.companyName}`,
     html: adminEmailContent,
     replyTo: data.businessEmail,

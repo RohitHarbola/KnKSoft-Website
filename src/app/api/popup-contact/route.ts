@@ -33,7 +33,7 @@ const emailConfig = {
   secure: true,
   auth: {
     user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
+    pass: process.env.SMTP_PASS || process.env.SMTP_PASSWORD,
   },
 };
 
@@ -137,7 +137,10 @@ export async function POST(request: NextRequest) {
       const transporter = nodemailer.createTransport(emailConfig);
       await transporter.sendMail({
         from: process.env.SMTP_USER,
-        to: process.env.NOTIFICATION_EMAIL,
+        to:
+          process.env.CONTACT_RECIPIENTS ||
+          process.env.NOTIFICATION_EMAIL ||
+          process.env.SMTP_USER,
         subject: "New Popup Contact Form Submission",
         html: `
           <h2>New Popup Contact Form Submission</h2>

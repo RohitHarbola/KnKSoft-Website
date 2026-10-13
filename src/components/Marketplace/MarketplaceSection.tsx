@@ -11,7 +11,9 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const MarketplaceSection = () => {
-  const [activeTab, setActiveTab] = useState("product-order");
+  const [activeTab, setActiveTab] = useState(
+    MARKETPLACE_TABS[0]?.id || "pos-order"
+  );
   const [showScrollButtons, setShowScrollButtons] = useState(false);
   const tabsListRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -82,7 +84,7 @@ export const MarketplaceSection = () => {
         </p>
 
         <Tabs
-          defaultValue="product-order"
+          defaultValue={MARKETPLACE_TABS[0]?.id || "pos-order"}
           value={activeTab}
           onValueChange={handleTabChange}
           className="w-full relative"
@@ -116,11 +118,10 @@ export const MarketplaceSection = () => {
                     key={tab.id}
                     value={tab.id}
                     onMouseEnter={() => handleTabHover(tab.id)}
-                    className={`px-6 py-3 rounded-full transition-all whitespace-nowrap ${
-                      activeTab === tab.id
+                    className={`px-6 py-3 rounded-full transition-all whitespace-nowrap ${activeTab === tab.id
                         ? "bg-red-500 text-white shadow-lg"
                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </TabsTrigger>
