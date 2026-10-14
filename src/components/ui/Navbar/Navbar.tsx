@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import DesktopMenu from "./DesktopMenu";
 import MobMenu from "./MobMenu";
 import { NAVIGATION_MENUS } from "@/constants/navigation/menu-items";
@@ -12,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { ContactPopup } from "@/components/ui/Contact/ContactPopup";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
@@ -26,6 +28,11 @@ export default function Navbar() {
 
     return () => window.removeEventListener("scroll", throttledHandleScroll);
   }, []);
+
+  // Do not render public site navbar on admin dashboard or career admin routes
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/career-admin")) {
+    return null;
+  }
 
   const headerClasses = cn(
     "fixed w-full top-0 z-50 shadow-sm bg-white",

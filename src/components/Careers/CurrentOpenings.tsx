@@ -101,9 +101,26 @@ export default function CurrentOpenings() {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send the application to your API
-      // For now, we'll just simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const formData = new FormData();
+      formData.append("jobId", applicationForm.jobId || selectedJob?._id || "");
+      formData.append("jobTitle", selectedJob?.title || "Job Opening");
+      formData.append("fullName", applicationForm.fullName);
+      formData.append("email", applicationForm.email);
+      formData.append("phone", applicationForm.phone);
+      formData.append("experience", applicationForm.experience);
+      formData.append("coverLetter", applicationForm.coverLetter);
+      if (applicationForm.resume) {
+        formData.append("resume", applicationForm.resume);
+      }
+
+      const res = await fetch("/api/jobs/applications", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit application to recruitment database");
+      }
 
       toast.success("Application submitted successfully!");
       setSelectedJob(null);
@@ -332,11 +349,20 @@ export default function CurrentOpenings() {
             <div className="space-y-6">
               <div>
                 <h4 className="text-lg font-semibold mb-2">Job Description</h4>
-                <ul className="list-disc pl-5 text-gray-600 space-y-1">
-                  {viewingJobDetails.description.map((desc, idx) => (
-                    <li key={`desc-${idx}`}>{desc}</li>
-                  ))}
-                </ul>
+                {viewingJobDetails.description.some((d) => /<[a-z][\s\S]*>/i.test(d)) ? (
+                  <div
+                    className="prose prose-sm max-w-none text-gray-600 leading-relaxed"
+                    dangerouslySetInnerHTML={{
+                      __html: viewingJobDetails.description.join(""),
+                    }}
+                  />
+                ) : (
+                  <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                    {viewingJobDetails.description.map((desc, idx) => (
+                      <li key={`desc-${idx}`}>{desc}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div>

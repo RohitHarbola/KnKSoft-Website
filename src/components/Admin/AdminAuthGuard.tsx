@@ -42,9 +42,9 @@ export default function AdminAuthGuard({
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="w-10 h-10 animate-spin text-red-500" />
+          <Loader2 className="w-10 h-10 animate-spin text-blue-500" />
           <p className="text-sm font-medium text-slate-300">
-            Verifying MongoDB administrative authorization...
+            Verifying administrative authorization...
           </p>
         </div>
       </div>

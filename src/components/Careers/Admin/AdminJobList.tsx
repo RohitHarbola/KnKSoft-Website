@@ -1,6 +1,7 @@
 "use client";
 
 import { BsPencil, BsTrash } from "react-icons/bs";
+import { Users } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -25,9 +26,10 @@ interface Props {
   jobs: Job[];
   onEdit: (job: Job) => void;
   onDelete: () => void;
+  onViewApplications?: (job: Job) => void;
 }
 
-export default function AdminJobList({ jobs, onEdit, onDelete }: Props) {
+export default function AdminJobList({ jobs, onEdit, onDelete, onViewApplications }: Props) {
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const handleDelete = async (id: string) => {
@@ -72,36 +74,48 @@ export default function AdminJobList({ jobs, onEdit, onDelete }: Props) {
             key={job._id}
             className="bg-white border border-gray-200 p-4 rounded-lg hover:shadow-md transition-shadow"
           >
-            <div className="flex justify-between items-start">
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+              <div className="space-y-2 flex-1 min-w-0">
+                <h3 className="text-lg font-semibold text-gray-900 break-words">
                   {job.title}
                 </h3>
                 <div className="space-y-1">
-                  <p className="text-gray-600 flex items-center">
+                  <p className="text-gray-600 flex items-center text-sm">
                     <span className="mr-2">🏢</span> {job.department}
                   </p>
-                  <p className="text-gray-600 flex items-center">
+                  <p className="text-gray-600 flex items-center text-sm">
                     <span className="mr-2">📍</span> {job.location}
                   </p>
-                  <p className="text-gray-600 flex items-center">
+                  <p className="text-gray-600 flex items-center text-sm">
                     <span className="mr-2">⏰</span> {job.type}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2 self-start shrink-0 pt-1 sm:pt-0">
                 <button
+                  type="button"
+                  onClick={() => onViewApplications?.(job)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-600 hover:text-white rounded-lg border border-blue-200 hover:border-blue-600 transition-colors shadow-xs"
+                  title="View applied candidates and download resumes"
+                >
+                  <Users className="w-3.5 h-3.5" />
+                  <span>Applied</span>
+                </button>
+
+                <button
+                  type="button"
                   onClick={() => onEdit(job)}
-                  className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
+                  className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                   title="Edit job"
                 >
-                  <BsPencil className="w-5 h-5" />
+                  <BsPencil className="w-4 h-4" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => handleDelete(job._id)}
                   disabled={deletingId === job._id}
-                  className={`p-2 text-red-600 rounded-full transition-colors ${
+                  className={`p-2 text-red-600 rounded-lg transition-colors ${
                     deletingId === job._id
                       ? "opacity-70 cursor-not-allowed"
                       : "hover:bg-red-50"

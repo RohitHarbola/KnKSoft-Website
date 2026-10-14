@@ -383,6 +383,7 @@ export default function CreateBlogPost({
   }, [fetchBlogPosts]);
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         heading: {

@@ -81,7 +81,7 @@ export default function AdminSettingsPage() {
               onClick={() => setActiveTab(tab.id as typeof activeTab)}
               className={`flex items-center gap-2 py-3 px-3 sm:px-4 text-sm font-medium border-b-2 whitespace-nowrap transition-colors ${
                 isActive
-                  ? "border-red-600 text-red-600"
+                  ? "border-blue-600 text-blue-600"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
@@ -111,7 +111,7 @@ export default function AdminSettingsPage() {
                   type="text"
                   value={siteName}
                   onChange={(e) => setSiteName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export default function AdminSettingsPage() {
                   type="email"
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -135,7 +135,7 @@ export default function AdminSettingsPage() {
                   type="text"
                   value={contactPhone}
                   onChange={(e) => setContactPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -147,7 +147,7 @@ export default function AdminSettingsPage() {
                   type="text"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function AdminSettingsPage() {
               <button
                 onClick={() => handleSave("General")}
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-60"
               >
                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 Save General Settings
@@ -195,7 +195,7 @@ export default function AdminSettingsPage() {
                   type="text"
                   value={smtpUser}
                   onChange={(e) => setSmtpUser(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -219,7 +219,7 @@ export default function AdminSettingsPage() {
                   type="text"
                   value={contactRecipients}
                   onChange={(e) => setContactRecipients(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <p className="text-xs text-gray-500 mt-1">Comma-separated email addresses that receive inquiries.</p>
               </div>
@@ -234,7 +234,7 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={emailAlerts}
                 onChange={(e) => setEmailAlerts(e.target.checked)}
-                className="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
             </div>
 
@@ -242,7 +242,7 @@ export default function AdminSettingsPage() {
               <button
                 onClick={() => handleSave("Email & SMTP")}
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-60"
               >
                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 Save SMTP Settings
@@ -273,7 +273,7 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={jobApplicationsEnabled}
                 onChange={(e) => setJobApplicationsEnabled(e.target.checked)}
-                className="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
             </div>
 
@@ -288,7 +288,7 @@ export default function AdminSettingsPage() {
                 type="checkbox"
                 checked={autoNotifyApplications}
                 onChange={(e) => setAutoNotifyApplications(e.target.checked)}
-                className="h-5 w-5 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
             </div>
 
@@ -296,7 +296,7 @@ export default function AdminSettingsPage() {
               <button
                 onClick={() => handleSave("Careers Portal")}
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-60"
               >
                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 Save Career Settings
@@ -350,7 +350,7 @@ export default function AdminSettingsPage() {
                 <select
                   value={sessionTimeoutHours}
                   onChange={(e) => setSessionTimeoutHours(e.target.value)}
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="12">12 Hours</option>
                   <option value="24">24 Hours (Standard)</option>
@@ -364,7 +364,7 @@ export default function AdminSettingsPage() {
               <button
                 onClick={() => handleSave("Security")}
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-60"
               >
                 {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 Save Security Settings

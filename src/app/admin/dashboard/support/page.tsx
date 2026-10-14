@@ -95,7 +95,7 @@ export default function AdminSupportPage() {
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="p-5 rounded-xl bg-white border border-gray-200 shadow-sm flex flex-col justify-between">
           <div>
-            <div className="h-10 w-10 rounded-lg bg-red-100 text-red-600 flex items-center justify-center mb-3">
+            <div className="h-10 w-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mb-3">
               <Mail className="h-5 w-5" />
             </div>
             <h3 className="font-semibold text-gray-900 text-base">Direct Email Support</h3>
@@ -106,7 +106,7 @@ export default function AdminSupportPage() {
           <div className="mt-4 pt-3 border-t border-gray-100">
             <a
               href="mailto:brijesh.joshi@knksoftinfotech.com"
-              className="text-xs font-semibold text-red-600 hover:text-red-700 break-all"
+              className="text-xs font-semibold text-blue-600 hover:text-blue-700 break-all"
             >
               brijesh.joshi@knksoftinfotech.com
             </a>
@@ -151,7 +151,7 @@ export default function AdminSupportPage() {
         <Card className="shadow-sm border-gray-200">
           <CardHeader>
             <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-red-50 text-red-600">
+              <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
                 <HelpCircle className="h-5 w-5" />
               </div>
               <div>
@@ -172,12 +172,12 @@ export default function AdminSupportPage() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between p-3.5 text-left text-sm font-semibold text-gray-900 hover:text-red-600 transition-colors"
+                    className="w-full flex items-center justify-between p-3.5 text-left text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
                       className={`h-4 w-4 text-gray-500 shrink-0 transition-transform ${
-                        isOpen ? "rotate-180 text-red-600" : ""
+                        isOpen ? "rotate-180 text-blue-600" : ""
                       }`}
                     />
                   </button>
@@ -218,7 +218,7 @@ export default function AdminSupportPage() {
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
                   placeholder="e.g. Question about job applicant notifications"
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -232,7 +232,7 @@ export default function AdminSupportPage() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe your question or issue in detail..."
-                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 ></textarea>
               </div>
@@ -241,7 +241,7 @@ export default function AdminSupportPage() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-60"
                 >
                   {sending ? (
                     <>

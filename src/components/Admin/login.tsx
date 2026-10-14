@@ -93,16 +93,16 @@ export default function AdminLogin({
         {/* Main Card */}
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
           {/* Header Banner */}
-          <div className="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 px-8 pt-8 pb-6 text-white text-center relative">
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-8 pt-8 pb-6 text-white text-center relative">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-md mb-3 border border-white/20 shadow-inner">
               <ShieldCheck className="w-9 h-9 text-white" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-            <p className="text-sm text-red-100 mt-1">{subtitle}</p>
+            <p className="text-sm text-blue-100 mt-1">{subtitle}</p>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/20 text-xs text-white/90 font-medium mt-3">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>MongoDB Authentication System</span>
+              <span>Admin System</span>
             </div>
           </div>
 
@@ -147,7 +147,7 @@ export default function AdminLogin({
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Enter admin username"
                     autoComplete="username"
-                    className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                   />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function AdminLogin({
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter password"
                     autoComplete="current-password"
-                    className="w-full pl-10 pr-11 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all"
+                    className="w-full pl-10 pr-11 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                   />
                   <button
                     type="button"
@@ -198,12 +198,12 @@ export default function AdminLogin({
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white font-semibold rounded-xl shadow-lg shadow-red-500/25 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    <span>Authenticating with MongoDB...</span>
+                    <span>Authenticating with Credentials...</span>
                   </>
                 ) : (
                   <span>Sign In / Access Admin</span>

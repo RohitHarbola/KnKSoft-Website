@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   FaFacebookF,
   FaInstagram,
@@ -13,6 +14,12 @@ import { FaXTwitter } from "react-icons/fa6";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Do not render public site footer on admin dashboard or career admin routes
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/career-admin")) {
+    return null;
+  }
   const quickLinks = [
     { text: "Contact Us", href: "/contact-us" },
     { text: "Portfolio", href: "/portfolio" },

@@ -140,7 +140,7 @@ export default function AdminProfilePage() {
         {/* Profile Card */}
         <Card className="lg:col-span-1 shadow-sm border-gray-200">
           <CardHeader className="text-center pb-3">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-red-100 text-red-600 ring-4 ring-red-50">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-blue-600 ring-4 ring-blue-50">
               <User className="h-10 w-10" />
             </div>
             <CardTitle className="mt-4 text-xl font-bold text-gray-900">
@@ -209,7 +209,7 @@ export default function AdminProfilePage() {
         <Card className="lg:col-span-2 shadow-sm border-gray-200">
           <CardHeader>
             <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-red-50 text-red-600">
+              <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
                 <Key className="h-5 w-5" />
               </div>
               <div>
@@ -232,7 +232,7 @@ export default function AdminProfilePage() {
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
                     placeholder="Enter your current password"
-                    className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                   <button
@@ -260,7 +260,7 @@ export default function AdminProfilePage() {
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       placeholder="Minimum 6 characters"
-                      className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-3.5 py-2.5 pr-10 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                       required
                     />
                     <button
@@ -286,7 +286,7 @@ export default function AdminProfilePage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Re-enter new password"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -296,7 +296,7 @@ export default function AdminProfilePage() {
                 <button
                   type="submit"
                   disabled={savingPassword}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-60"
                 >
                   {savingPassword ? (
                     <>
